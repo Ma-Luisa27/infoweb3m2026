@@ -26,5 +26,9 @@ def semestre (x):
     anterior = x-1
     return render_template('semestre.html', atual=atual, anterior=anterior)
 
+@app.route('/perfil/<usuario>')
+def perfil (usuario):
+    return render_template('perfil.html', usuario=usuario)
+
 if __name__ == '__main__':
     app.run()

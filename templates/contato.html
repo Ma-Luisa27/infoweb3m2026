@@ -1,5 +1,10 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename="css/estilo.css")}}"
+    </head>
     <body>
+        <img src="{{url_for('static', filename='img/contato.png')}}" onclick="cliqueAqui()">
+        <script src="{{url_for('static', filename='js/script.js')}}"></script>
         <p>Nome: {{dados.nome}}</p>
         <p>E-mail: {{dados.email}}</p>
     </body>
