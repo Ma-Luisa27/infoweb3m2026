@@ -43,8 +43,19 @@ def recebedados():
     datanasc = request.form['datanasc']
     data_objeto = datetime.strptime(datanasc, "%Y-%m-%d")
     data_formatada = data_objeto.strftime("%d-%m-%Y")
+    estado = request.form['estado']
+    escola = request.form.getlist('escola')
     # info = request.args
-    return render_template('recebedados.html', nome=nome, sobrenome=sobrenome, email=email, data_formatada=data_formatada)
+    return render_template('recebedados.html', nome=nome, sobrenome=sobrenome, email=email, data_formatada=data_formatada, estado=estado, escola=escola)
+
+@app.route('/compras')
+def compras():
+    return render_template('compras.html')
+
+@app.route('/recebecompras', methods=['POST'])
+def recebecompras():
+    itens = request.form.getlist('item')
+    return render_template('lista.html', itens=itens)
 
 if __name__ == '__main__':
     app.run()
